@@ -25,10 +25,25 @@ public class InimigoBu : MonoBehaviour
     void Update()
     {
         SeguirJogador();
+        EspelharNaHorizontal();
     }
 
     private void SeguirJogador()
     {
         transform.position = Vector2.MoveTowards(transform.position, oJogador.transform.position, velocidadeDoInimigo * Time.deltaTime);
+    }
+
+    private void EspelharNaHorizontal()
+    {
+        if (oJogador.transform.position.x > transform.position.x)
+        {
+            indoParaDireita = true;
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else
+        {
+            indoParaDireita = false;
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
     }
 }
