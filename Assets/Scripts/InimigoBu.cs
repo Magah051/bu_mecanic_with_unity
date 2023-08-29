@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class InimigoBu : MonoBehaviour
 {
+    [Header("Verificação do Andar")]
     private bool podeAndar;
     private VerificarDiecaoDoMovimentoDoJogador oVerificarDiecaoDoMovimentoDoJogador;
 
-
-    private GameObject oJogador;
+    [Header("Movimento do Inimigo")]
     [SerializeField] private float velocidadeDoInimigo;
-
     [SerializeField] private bool indoParaDireita;
+    private GameObject oJogador;
 
     private void Awake()
     {
@@ -19,14 +19,12 @@ public class InimigoBu : MonoBehaviour
         oVerificarDiecaoDoMovimentoDoJogador = oJogador.GetComponent<VerificarDiecaoDoMovimentoDoJogador>();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        podeAndar = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         VerificarSePodeAndar();
         SeguirJogador();
